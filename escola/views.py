@@ -8,24 +8,6 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 class EstudanteViewSet(viewsets.ModelViewSet):
-    """
-    Descrição da ViewSet:
-    - Endpoint para CRUD de estudantes.
-
-    Campos de ordenação:
-    - nome: permite ordenar os resultados por nome.
-
-    Campos de pesquisa:
-    - nome: permite pesquisar os resultados por nome.
-    - cpf: permite pesquisar os resultados por CPF.
-
-    Métodos HTTP Permitidos:
-    - GET, POST, PUT, PATCH, DELETE
-
-    Classe de Serializer:
-    - EstudanteSerializer: usado para serialização e desserialização de dados.
-    - Se a versão da API for 'v2', usa EstudanteSerializerV2.
-    """
     queryset = Estudante.objects.all().order_by("id")
     # serializer_class = EstudanteSerializer
     filter_backends = [DjangoFilterBackend,
